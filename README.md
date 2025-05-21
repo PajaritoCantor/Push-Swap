@@ -23,8 +23,8 @@ La complejidad se expresa con la notación **Big O**, que representa el **crecim
 
 | Notación     | Nombre         | Descripción general                         |
 |--------------|----------------|---------------------------------------------|
-| O(1)         | Constante      | Siempre tarda lo mismo, sin importar `n`.   |
-| O(log n)     | Logarítmica    | Muy eficiente, divide el problema en partes.|
+| O(1)         | Constant      | Siempre tarda lo mismo, sin importar `n`.   |
+| O(log n)     | Logaritmic    | Muy eficiente, divide el problema en partes.|
 | O(n)         | Lineal         | Crece proporcionalmente con `n`.            |
 | O(n log n)   | Quasilineal    | Común en algoritmos de ordenamiento rápidos.|
 | O(n²)        | Cuadrática     | Dos bucles anidados; lento para `n` grande. |
@@ -33,7 +33,7 @@ La complejidad se expresa con la notación **Big O**, que representa el **crecim
 
 ---
 
-## 📏 Comparación entre tipos de complejidad con ejemplos prácticos
+## 📏 COMPARACIÓN ENTRE TIPOS 
 
 A continuación se explican tres situaciones comunes con sus respectivas complejidades, para entender cómo se comportan dependiendo del tamaño de la entrada (`n`).
 
@@ -68,17 +68,42 @@ La complejidad **O(log n)** ocurre cuando el algoritmo **reduce el tamaño del p
 ---
 
 ### 📌 Ejemplo en C (división sucesiva)
-
-
-    # include <stdio.h>
     
     int main ()
     {
         int n = 42;
     
-        while (n > 1) 
+        while (n > 1)
         {
-            printf("n = %d\n", n / 2);
             n = n / 2;
+            printf("%d\n", n);
         }
+    
+        return 0;
     }
+    
+    
+    /*
+    int logaritmic(int n)
+    {
+        return (n / 2);
+    }
+    int main (int argc, char *argv[])
+    {
+        if (argc != 2)
+        {
+            printf("USO: %s <NUMERO>", argv[0]);
+            return (1);
+        }
+        int n = atoi(argv[1]);
+        
+        while (n > 1)
+        {
+            printf("%d\n", n);
+            n = logaritmic(n);
+        }
+        return (0);
+    }
+
+$ ./lineal                                                                  
+01234567891011121314151617181920212223242526272829303132333435363738394041% 
