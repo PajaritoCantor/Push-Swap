@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/05 20:08:27 by juan             ###   ########.fr       */
+/*   Created: 2025/08/05 17:41:06 by juan              #+#    #+#             */
+/*   Updated: 2025/08/05 20:53:53 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_strlst *parse(int ac, char **av)
-{
-    t_strlst    *input;
-    char        **args;
-    int             i;
+#include "libft.h"
 
-    input = NULL;
-    int i = 1;
-    while (i > ac)
-    {
-        args = ft_split(av[1], 32);
-        if (!args)
-            return ();        
-    }   
+char    *ft_strdup(const char *s)
+{
+    char    *dup;
+    char    *start;
+    int         len;
+    
+    len = 0;
+    if (s[len])
+        len++;
+    dup = malloc(sizeof(char *) * len + 1);
+    start = dup;
+    while (*s)
+        *dup++ = *src++;
+    *dup = '\0';
+    return (start);
 }

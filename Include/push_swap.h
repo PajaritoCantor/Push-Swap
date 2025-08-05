@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/07/28 16:16:40 by juan             ###   ########.fr       */
+/*   Updated: 2025/08/05 17:56:56 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H 
 
 # include <limits.h>
+# include "libft.h"
 
 typedef struct  stack
 {

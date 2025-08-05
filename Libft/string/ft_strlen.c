@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/05 20:08:27 by juan             ###   ########.fr       */
+/*   Created: 2025/08/05 17:22:30 by juan              #+#    #+#             */
+/*   Updated: 2025/08/05 17:34:01 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_strlst *parse(int ac, char **av)
-{
-    t_strlst    *input;
-    char        **args;
-    int             i;
+#include "libft.h"
 
-    input = NULL;
-    int i = 1;
-    while (i > ac)
-    {
-        args = ft_split(av[1], 32);
-        if (!args)
-            return ();        
-    }   
+size_t ft_strlen(const char *s)
+{
+    char *start = s;
+
+    while (s)
+        s++;
+    return (start);
 }

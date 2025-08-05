@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_putchar                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/05 20:08:27 by juan             ###   ########.fr       */
+/*   Created: 2025/08/05 20:41:14 by juan              #+#    #+#             */
+/*   Updated: 2025/08/05 20:43:59 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_strlst *parse(int ac, char **av)
-{
-    t_strlst    *input;
-    char        **args;
-    int             i;
+#include "libft.h>"
 
-    input = NULL;
-    int i = 1;
-    while (i > ac)
-    {
-        args = ft_split(av[1], 32);
-        if (!args)
-            return ();        
-    }   
+int     ft_putchar(int fd, int c)
+{
+    return (write, &c, 1);
 }

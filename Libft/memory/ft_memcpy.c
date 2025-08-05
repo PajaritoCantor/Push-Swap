@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/05 20:08:27 by juan             ###   ########.fr       */
+/*   Created: 2025/08/05 18:55:22 by juan              #+#    #+#             */
+/*   Updated: 2025/08/05 21:02:52 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_strlst *parse(int ac, char **av)
-{
-    t_strlst    *input;
-    char        **args;
-    int             i;
+#include "libft.h"
 
-    input = NULL;
-    int i = 1;
-    while (i > ac)
-    {
-        args = ft_split(av[1], 32);
-        if (!args)
-            return ();        
-    }   
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*d;
+	unsigned char	*s;
+
+	if (!dest || !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (--n)
+		*d++ = *s++;
+	return (dest);
 }

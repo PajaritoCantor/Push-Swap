@@ -37,3 +37,5 @@ Lista enlazada para guardar los datos como strings, útil en el parseo inicial a
 ** útil para analizar la entrada como string(split, validaciones, errores) **
 ** Puedes convertir luego cada nodo a entero y crear los nodos de t_stack **
 
+## Parseo
+
