@@ -5,61 +5,63 @@
 #                                                     +:+ +:+         +:+      #
 #    By: juan <juan@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/25 16:51:36 by juan              #+#    #+#              #
-#    Updated: 2025/08/13 21:20:08 by juan             ###   ########.fr        #
+#    Created: 2025/08/11 21:39:17 by juan              #+#    #+#              #
+#    Updated: 2025/08/13 20:48:59 by juan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#============================== DIRECTORIES & SOURCE FILES ==============================#
 
-INC_DIR         := include/
-LIBFT_DIR       := libft/
-MAIN_DIR        := main/
-PARSE_DIR       := parse/
+MEMORY_DIR      := memory/
+PRINTF_DIR      := printf/
+STRING_DIR      := string/
 OBJS_DIR        := objs/
 
-MAIN_FILES      := main
-PARSE_FILES     := parse
+MEMORY_FILES    := ft_memcpy
+PRINTF_FILES    := ft_putchar ft_putstr ft_strlen_int ft_putnbr ft_strlen_int
+STRING_FILES    := ft_strlen ft_split ft_strdup ft_substr
 
-OBJ_FILES := $(addprefix $(OBJS_DIR)/main/, $(addsuffix .o, $(MAIN_FILES))) \
-             $(addprefix $(OBJS_DIR)/parse/, $(addsuffix .o, $(PARSE_FILES)))
+SRC_FILES := \
+	$(addprefix $(MEMORY_DIR), $(addsuffix .c, $(MEMORY_FILES))) \
+	$(addprefix $(PRINTF_DIR), $(addsuffix .c, $(PRINTF_FILES))) \
+	$(addprefix $(STRING_DIR), $(addsuffix .c, $(STRING_FILES)))
+
+OBJ_FILES := $(addprefix $(OBJS_DIR), $(notdir $(SRC_FILES:.c=.o)))
 
 #============================== VARIABLES & COMPILER ==============================#
 
-NAME    := push_swap
-LIBFT   := $(LIBFT_DIR)/libft.a
+NAME    := libft.a
 CC      := gcc
 CFLAGS  := -Wall -Wextra -Werror -g3
+AR      := ar rcs
 RM      := rm -f
 MKDIR   := mkdir -p
-IFLAGS  := -I$(INC_DIR) -I$(LIBFT_DIR)
+IFLAGS  := -I.
 
 #============================== RULES ==============================#
 
-all: $(LIBFT) $(NAME)
+.PHONY: all clean fclean re
 
-$(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
+all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT) -o $(NAME)
+	$(AR) $(NAME) $(OBJ_FILES)
 
-$(OBJS_DIR)/main/%.o: $(MAIN_DIR)%.c
-	@$(MKDIR) -p $(OBJS_DIR)/main
+$(OBJS_DIR)%.o: $(MEMORY_DIR)%.c
+	@$(MKDIR) $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
-$(OBJS_DIR)/parse/%.o: $(PARSE_DIR)%.c
-	@$(MKDIR) -p $(OBJS_DIR)/parse
+$(OBJS_DIR)%.o: $(PRINTF_DIR)%.c
+	@$(MKDIR) $(OBJS_DIR)
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJS_DIR)%.o: $(STRING_DIR)%.c
+	@$(MKDIR) $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ_FILES)
-	@$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
-
-.PHONY: all clean fclean re

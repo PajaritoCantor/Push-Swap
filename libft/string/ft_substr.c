@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 20:44:13 by juan              #+#    #+#             */
-/*   Updated: 2025/08/05 20:46:58 by juan             ###   ########.fr       */
+/*   Created: 2025/08/03 23:35:26 by juan              #+#    #+#             */
+/*   Updated: 2025/08/13 20:52:56 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-int     ft_putstr(int fd, char *str)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-    if (!str)
-        str = "(null)";
-    return (write(fd, str, ft_strlen(str)));
+	char	*substr;
+	size_t	slen;
+
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (start >= len)
+		return (ft_strdup(""));
+	if (len > slen - start)
+		len = slen - start;
+	substr = malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	ft_memcpy(substr, s + start, len);
+	substr [len] = '\0';
+	return (substr);
 }

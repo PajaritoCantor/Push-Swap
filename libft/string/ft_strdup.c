@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/08/13 21:22:16 by juan             ###   ########.fr       */
+/*   Created: 2025/08/05 17:41:06 by juan              #+#    #+#             */
+/*   Updated: 2025/08/13 20:52:08 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-int main(int ac, char **av)
+char	*ft_strdup(const char *s)
 {
-    t_push_swap *push_swap;
-    
-    if (ac < 2)
-        return 0;
-    push_swap = parse(ac, av);  
+	char	*dup;
+	char	*start;
+	int		len;
+
+	len = 0;
+	if (s[len])
+		len++;
+	dup = malloc(sizeof(char *) * len + 1);
+	start = dup;
+	while (*s)
+		*dup++ = *s++;
+	*dup = '\0';
+	return (start);
 }

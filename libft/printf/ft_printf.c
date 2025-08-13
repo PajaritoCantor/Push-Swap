@@ -1,22 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/08/13 21:22:16 by juan             ###   ########.fr       */
+/*   Created: 2025/08/13 19:13:36 by juan              #+#    #+#             */
+/*   Updated: 2025/08/13 20:20:46 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-int main(int ac, char **av)
-{
-    t_push_swap *push_swap;
-    
-    if (ac < 2)
-        return 0;
-    push_swap = parse(ac, av);  
-}
+int	ft_printf(char const *s, ...)

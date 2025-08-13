@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_strlen_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/05 20:08:27 by juan             ###   ########.fr       */
+/*   Created: 2025/08/13 12:53:29 by juan              #+#    #+#             */
+/*   Updated: 2025/08/13 20:51:37 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_strlst *parse(int ac, char **av)
+int	ft_strlen_int(const char *s)
 {
-    t_strlst    *input;
-    char        **args;
-    int             i;
+	const char	*start;
 
-    input = NULL;
-    int i = 1;
-    while (i > ac)
-    {
-        args = ft_split(av[1], 32);
-        if (!args)
-            return ();        
-    }   
+	start = s;
+	while (*s)
+		s++;
+	return (s - start);
 }

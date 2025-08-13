@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 17:41:06 by juan              #+#    #+#             */
-/*   Updated: 2025/08/05 20:53:53 by juan             ###   ########.fr       */
+/*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
+/*   Updated: 2025/08/13 21:21:11 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H 
 
-char    *ft_strdup(const char *s)
+# include <limits.h>
+# include "libft.h"
+
+typedef struct  stack
 {
-    char    *dup;
-    char    *start;
-    int         len;
-    
-    len = 0;
-    if (s[len])
-        len++;
-    dup = malloc(sizeof(char *) * len + 1);
-    start = dup;
-    while (*s)
-        *dup++ = *src++;
-    *dup = '\0';
-    return (start);
-}
+    int data;
+    struct  stack   *next;
+}               t_stack;
+
+typedef struct push_swap
+{
+    t_stack *a;
+    t_stack *b;
+}               t_push_swap;
+
+typedef struct strlst
+{
+    char    *data;
+    struct  strlst  *next;
+}               t_strlst;
+
+t_strlst *parse(int ac, char **av);
+
+#endif
