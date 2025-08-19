@@ -10,8 +10,8 @@ Esta struct define un nodo de una pila (stack), usada para representar las pilas
 
                 typedef struct  stack
                 {
-                    int data;   // Valor entero que representa un número en la pila
-                    struct  stack   *next;  //Puntero al siguiente nodo en la pila (lista enlazada)
+                    int data;   // Valor entero que representa un integer en la pila
+                    struct  stack   *next;  // Puntero al siguiente nodo en la pila (lista enlazada)
                 }               t_stack;
 
 ### t_push_swap
