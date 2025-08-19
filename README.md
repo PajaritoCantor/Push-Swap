@@ -2,6 +2,16 @@
 
 # 🧠 Push-SwaP
 
+## Funciones complementarias
+
+En este proyecto decidí rehacer y optimizar algunas funciones de mi **libft**, incluyendo la versión personalizada de la función **printf**,  
+
+### LIBFT
+<details>
+<summary>LIBFT</summary>
+
+</details>
+
 ## Mis structs y listas
 
 ### t_stack
@@ -34,9 +44,9 @@ Lista enlazada para guardar los datos como strings, útil en el parseo inicial a
                     struct  strlst  *next; // Puntero al siguiente nodo
                 }               t_strlst;
 
+
+
 ** útil para analizar la entrada como string(split, validaciones, errores) ** 
 
 ** Puedes convertir luego cada nodo a entero y crear los nodos de t_stack **
-
-## Parseo
 
