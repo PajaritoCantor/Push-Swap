@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlstadd_back.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurodrig <jurodrig@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 20:41:14 by juan              #+#    #+#             */
-/*   Updated: 2025/08/19 12:26:01 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/08/19 12:25:20 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/08/19 16:55:23 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_putchar(int fd, char c)
+void	ft_strlstd_add_back(t_strlst **lst, t_strlst *new)
 {
-	return (write(fd, &c, 1));
+	t_strlst	*last;
+
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+		lst = new;
+	else
+	{
+		last = ft_strlstlast(*lst);
+		last->next = new;
+	}
 }

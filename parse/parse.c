@@ -3,27 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/13 21:17:53 by juan             ###   ########.fr       */
+/*   Updated: 2025/08/19 14:42:06 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_strlst *parse(int ac, char **av)
+t_strlst    *append_args_to_list(t_strlst *input, char **args)
 {
-    t_strlst    *input;
-    char        **args;
-    int             i;
+	int	j;
+	int k;	
+	t_strlst	*new_node;
+	
+	j = 0;
+	while (args[j])
+	{
+		k = 0;
+		while (args[j][k])
+		{
+			if (args[j][k] >= '0' && args[j][k] <= '9')
+				k++;
+			else if (k == 0 && args[j][k] == '-')
+				k++;
+			else
+				return NULL;
+		}
+		new_node = ft_strlstnew(args[j]);
+		ft_strlstadd_back(&input, new_node);
+		j++;
+	}
+	return (input);
+}
 
-    input = NULL;
-    int i = 1;
-    while (i > ac)
-    {
-        args = ft_split(av[1], 32);
-        if (!args)
-            return ();        
-    }   
+t_strlst	*parse(int ac, char **av)
+{
+	t_strlst	*input;
+    char		**args;
+    int				i;
+
+	input = NULL;
+	int i = 1;
+	while (i < ac)
+	{
+		args = ft_split(av[i], ' ');
+		if (!args)
+			return (NULL);
+		input = append_args_to_list(input, args);
+		i++;
+	}
 }

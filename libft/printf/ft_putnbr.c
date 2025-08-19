@@ -6,13 +6,13 @@
 /*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 17:58:36 by juan              #+#    #+#             */
-/*   Updated: 2025/08/13 20:42:01 by juan             ###   ########.fr       */
+/*   Updated: 2025/08/18 15:55:15 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_putnbr_base(long n, char *base, int lenbase)
+int	ft_putnbr_base(long n, char *base, int lenbase, int fd)
 {
 	int	len;
 
@@ -22,35 +22,25 @@ int	ft_putnbr_base(long n, char *base, int lenbase)
 	if (n < 0)
 	{
 		n *= -1;
-		len = len + ft_putchar('-');	
+		len = len + ft_putchar('-', fd);
 	}
 	if (n > (lenbase - 1))
-	{
-		len = len + ft_putnbr_base(n / lenbase, base, lenbase);
-		n = n % lenbase;
-	}
-	ft_putchar(base[n]);
-	len++;
+		len += ft_putnbr_base(n / lenbase, base, lenbase, fd);
+	len += ft_putchar(base[n % lenbase], fd);
 	return (len);
 }
 
 int	ft_putnbr_base_p(long n, char *base, int lenbase, int fd)
 {
-	unsigned int 	nbr;
 	unsigned int 	baselen;
 	int				len;
 
-	nbr = n;
 	len = 0;
 	baselen = lenbase;
 	if (baselen == 0)
 		return (ft_strlen(base));
-	if (nbr > (baselen - 1))
-	{
-		len = len + ft_putnbr_base_p(nbr / baselen, base, baselen, fd);
-		nbr = nbr % baselen;
-	}
-	ft_putchar(base[nbr]);
-	len++;
+	if (n > (baselen - 1))
+		len += ft_putnbr_base_p(n / baselen, base, baselen, fd);
+	len += ft_putchar(base[n & baselen], fd);
 	return (len);
 }

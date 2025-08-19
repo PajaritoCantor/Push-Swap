@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlstnew.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurodrig <jurodrig@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 20:41:14 by juan              #+#    #+#             */
-/*   Updated: 2025/08/19 12:26:01 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/08/19 12:29:08 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/08/19 16:06:43 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../libft.h"
 
-int	ft_putchar(int fd, char c)
+t_strlst	*ft_strlstnew(void	*content)
 {
-	return (write(fd, &c, 1));
+	t_strlst	*new_node;
+
+	new_node = malloc(sizeof(t_strlst));
+	new_node->data = ft_strdup(new_node);
+	new_node->next = NULL;
+	return(new_node);
 }

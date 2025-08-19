@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlstlast.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurodrig <jurodrig@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 20:41:14 by juan              #+#    #+#             */
-/*   Updated: 2025/08/19 12:26:01 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/08/19 13:02:05 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/08/19 16:22:16 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_putchar(int fd, char c)
+t_strlst    *ft_strlstlast(t_strlst *lst)
 {
-	return (write(fd, &c, 1));
+    while (lst)
+    {
+        if (!lst->next)
+            return (lst);
+        lst->next = lst;
+    }
+    return (lst);
 }
