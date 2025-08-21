@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlstadd_back.c                                :+:      :+:    :+:   */
+/*   ft_print_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/20 19:29:16 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/08/21 12:19:49 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/08/21 12:28:15 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_strlstadd_back(t_strlst **lst, t_strlst *new)
+void	print_error(void)
 {
-	t_strlst	*last;
-
-	if (!lst || !new)
-		return ;
-	if (lst == NULL)
-		*lst = new;
-	else
-	{
-		last = ft_strlstlast(*lst);
-		last->next = new;
-	}
+	ft_printfd(2, "Error\n");
+	exit (1);
 }

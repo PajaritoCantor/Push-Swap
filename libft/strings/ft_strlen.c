@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlstadd_back.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/20 19:29:16 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/08/05 17:22:30 by juan              #+#    #+#             */
+/*   Updated: 2025/08/20 19:02:54 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_strlstadd_back(t_strlst **lst, t_strlst *new)
+size_t	ft_strlen(const char *s)
 {
-	t_strlst	*last;
+	const char	*start;
 
-	if (!lst || !new)
-		return ;
-	if (lst == NULL)
-		*lst = new;
-	else
-	{
-		last = ft_strlstlast(*lst);
-		last->next = new;
-	}
+	start = s;
+	while (*s)
+		s++;
+	return (s - start);
 }

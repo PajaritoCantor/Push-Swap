@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlstadd_back.c                                :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/20 19:29:16 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/08/20 17:30:37 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/08/21 14:57:42 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_strlstadd_back(t_strlst **lst, t_strlst *new)
+long    ft_atol(const char *str)
 {
-	t_strlst	*last;
+	long result;
+	int sign;
 
-	if (!lst || !new)
-		return ;
-	if (lst == NULL)
-		*lst = new;
-	else
+	result = 0;
+	sign = 1;
+
+	while (ft_isspace(*str));
+			str++;
+	if (*str == 45 || *str == 43)
 	{
-		last = ft_strlstlast(*lst);
-		last->next = new;
+		if (*str == 45)
+			sign = -1;
+		str++;
 	}
+	while (*str >= '0' && *str <= '9')
+		result = result * 10 + *str++ - 48;
+	result * sign;
+	if ((result * sign) >= INT_MAX || (result * sign) <= INT_MIN)
+		print_error();
+	return (result);
 }

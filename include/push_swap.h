@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/08/13 21:21:11 by juan             ###   ########.fr       */
+/*   Updated: 2025/08/20 19:04:27 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ typedef struct push_swap
     t_stack *a;
     t_stack *b;
 }               t_push_swap;
-
-typedef struct strlst
-{
-    char    *data;
-    struct  strlst  *next;
-}               t_strlst;
 
 t_strlst *parse(int ac, char **av);
 

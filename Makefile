@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juan <juan@student.42.fr>                  +#+  +:+       +#+         #
+#    By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 16:51:36 by juan              #+#    #+#              #
-#    Updated: 2025/08/14 15:41:00 by juan             ###   ########.fr        #
+#    Updated: 2025/08/21 11:03:50 by jurodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,26 +39,27 @@ IFLAGS  := -I$(INC_DIR) -I$(LIBFT_DIR)
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
+	@echo "Compilando libft..."
+	@$(MAKE) -C $(LIBFT_DIR) >/dev/null
 
 $(NAME): $(OBJ_FILES)
-	$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ_FILES) $(LIBFT) -o $(NAME)
 
 $(OBJS_DIR)/main/%.o: $(MAIN_DIR)%.c
 	@$(MKDIR) -p $(OBJS_DIR)/main
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJS_DIR)/parse/%.o: $(PARSE_DIR)%.c
 	@$(MKDIR) -p $(OBJS_DIR)/parse
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ_FILES)
-	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(RM) $(OBJ_FILES)
+	@$(MAKE) -C $(LIBFT_DIR) clean >/dev/null
 
 fclean: clean
-	$(RM) $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(RM) $(NAME)
+	@$(MAKE) -C $(LIBFT_DIR) fclean >/dev/null
 
 re: fclean all
 

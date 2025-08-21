@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 17:41:06 by juan              #+#    #+#             */
-/*   Updated: 2025/08/13 20:52:08 by juan             ###   ########.fr       */
+/*   Created: 2025/08/20 17:53:47 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/08/20 19:35:22 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_isspace(char c)
 {
-	char	*dup;
-	char	*start;
-	int		len;
-
-	len = 0;
-	if (s[len])
-		len++;
-	dup = malloc(sizeof(char *) * len + 1);
-	start = dup;
-	while (*s)
-		*dup++ = *s++;
-	*dup = '\0';
-	return (start);
+	return (c == 32 || (c >= 9 && c <= 13));
 }

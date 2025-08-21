@@ -16,13 +16,13 @@ static int	ft_conversion_fd_two(int fd, char conv, va_list arg)
 	int len = 0;
 
 	if (conv == 'd' || conv == 'i')
-		len = ft_putnbr_base(fd, va_arg(arg, int), "0123456789", 0);
+		len = ft_putnbr_base(va_arg(arg, int), "0123456789", 10, fd);
 	else if (conv == 'u')
-		len = ft_putnbr_base(fd, va_arg(arg, unsigned int), "0123456789", 0);
+		len = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789", 10, fd);
 	else if (conv == 'x')
-		len = ft_putnbr_base(fd, va_arg(arg, unsigned int), "0123456789abcdef", 0);
+		len = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789abcdef", 16, fd);
 	else if (conv == 'X')
-		len = ft_putnbr_base(fd, va_arg(arg, unsigned int), "0123456789ABCDEF", 0);
+		len = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789ABCDEF", 16, fd);
 	else if (conv == '%')
 		len = ft_putchar(fd, '%');
 	return (len);
@@ -45,7 +45,7 @@ static int ft_conversion_fd(int fd, char conv, va_list arg)
 		else
 		{		
 			len += ft_putstr(fd, "0x");
-			len += ft_putnbr_base_p(fd, (unsigned long)p, "0123456789abcdef", 0);
+			len += ft_putnbr_base_p((unsigned long)p, "0123456789abcdef", 10, fd);
 		}
 	}
 	else
