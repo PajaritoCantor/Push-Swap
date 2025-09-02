@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_error.c                                   :+:      :+:    :+:   */
+/*   ft_strlstdelone.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 12:19:49 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/08/22 15:59:44 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/08/28 20:13:45 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/09/02 13:39:45 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-void	ft_print_error(void)
+void	ft_strlsdelone(t_strlst *lst, void (*del)(void *))
 {
-	ft_printfd(2, "Error\n");
-	exit (1);
+	if (lst && del)
+		del(lst->data);
+	free(lst);
 }

@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:30:37 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/08/21 14:57:42 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/08/27 15:47:31 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ long    ft_atol(const char *str)
 	result = 0;
 	sign = 1;
 
-	while (ft_isspace(*str));
+	while (ft_isspace(*str))
 			str++;
 	if (*str == 45 || *str == 43)
 	{
@@ -30,8 +30,9 @@ long    ft_atol(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 		result = result * 10 + *str++ - 48;
-	result * sign;
-	if ((result * sign) >= INT_MAX || (result * sign) <= INT_MIN)
-		print_error();
+	result *= sign;
+
+	if (result > INT_MAX || result < INT_MIN)
+		ft_printfd(1, "Error atol");
 	return (result);
 }

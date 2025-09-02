@@ -37,15 +37,3 @@ Lista enlazada para guardar los datos como strings, útil en el parseo inicial a
 ** útil para analizar la entrada como string(split, validaciones, errores) ** 
 
 ** Puedes convertir luego cada nodo a entero y crear los nodos de t_stack **
-
-## Sobre las listas
-
-                    t_strlst    *ft_strlstnew(void *content)
-                    {
-                        t_strlst    *new_node;
-
-                        new_node = malloc(sizeof(t_strslst));
-                        new_node->data = ft_strdup(content);
-                        new_node->next = NULL;
-                        return(new_node);
-                    }

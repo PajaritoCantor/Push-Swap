@@ -6,7 +6,7 @@
 #    By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 21:39:17 by juan              #+#    #+#              #
-#    Updated: 2025/08/21 12:07:42 by jurodrig         ###   ########.fr        #
+#    Updated: 2025/08/27 15:34:25 by jurodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,14 +18,17 @@ PRINTF_DIR      := printf/
 STRINGS_DIR     := strings/
 VALIDATE_DIR	:= validate/
 OBJS_DIR        := objs/
+FREE_DIR		:= free/
 
 LISTS_FILES		:= ft_strlstadd_back ft_strlstlast ft_strlstnew
 MEMORY_FILES    := ft_memcpy
-PRINTF_FILES    := ft_printf ft_putchar ft_putnbr ft_putstr ft_strlen_int
+PRINTF_FILES    := ft_printf ft_putchar ft_putnbr ft_putstr ft_strlen_int ft_print_error
 STRINGS_FILES   := ft_split ft_strdup ft_strlen ft_substr
-VALIDATE_FILES	:= ft_atol ft_str_isdigit ft_isspace
+VALIDATE_FILES	:= ft_atol ft_str_isdigit ft_isspace ft_isrepeat
+FREE_FILES		:= ft_free_split
 
 SRC_FILES := \
+	$(addprefix $(FREE_DIR), $(addsuffix .c, $(FREE_FILES))) \
 	$(addprefix $(LISTS_DIR), $(addsuffix .c, $(LISTS_FILES))) \
 	$(addprefix $(MEMORY_DIR), $(addsuffix .c, $(MEMORY_FILES))) \
 	$(addprefix $(PRINTF_DIR), $(addsuffix .c, $(PRINTF_FILES))) \
@@ -70,6 +73,10 @@ $(OBJS_DIR)%.o: $(LISTS_DIR)%.c
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJS_DIR)%.o: $(VALIDATE_DIR)%.c
+	@$(MKDIR) $(OBJS_DIR)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJS_DIR)%.o: $(FREE_DIR)%.c
 	@$(MKDIR) $(OBJS_DIR)
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 

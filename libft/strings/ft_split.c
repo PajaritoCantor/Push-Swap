@@ -6,79 +6,102 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:32:55 by juan              #+#    #+#             */
-/*   Updated: 2025/08/20 19:02:50 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/08/27 11:53:02 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static int	wordlen(const char *s, char c)
+static int	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (src[j])
+		j++;
+	if (size == 0)
+		return (j);
+	while (i < (size - 1) && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}	
+	dst[i] = '\0';
+	return (j);
+}
+static int	ft_wordlen(const char *s, char c)
 {
 	int	len;
 
 	len = 0;
-	while (*s && *s != c)
-	{
+	while (s[len] && s[len] != c)
 		len++;
-		s++;
-	}
 	return (len);
 }
 
-static int	countword(const char *s, char c)
+static int	ft_countwords(const char *s, char c)
 {
-	int	count_word;
+	int	count;
+	int	flag;
 
-	count_word = 0;
+	count = 0;
+	flag = 0;
 	while (*s)
 	{
-		if (*s != c)
+		if (*s != c && flag == 0)
 		{
-			count_word++;
-			s += wordlen(s, c);
+			count++;
+			flag = 1;
 		}
-		else
-			s++;
+		else if (*s == c)
+			flag = 0;
+		s++;
 	}
-	return (count_word);
+	return (count);
 }
 
-static void	*free_strs(char **strs)
+static void	*ft_free_parcial(char **arr, int i)
 {
-	int	i;
-
-	i = 0;
-	while (strs[i])
-		free(strs[i++]);
-	free(strs);
+	while (i > 0)
+	{
+		i--;
+		free(arr[i]);
+	}
+	free(arr);
 	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char		**strs;
-	int			i;
-	int			count;
+	char	**strs;
+	int		i;
+	int		len;
+	int		count;
 
 	if (!s)
 		return (NULL);
-	count = countword(s, c);
+	count = ft_countwords(s, c);
 	strs = malloc(sizeof(char *) * (count + 1));
 	if (!strs)
 		return (NULL);
-	strs[count] = (NULL);
 	i = 0;
 	while (*s)
 	{
 		if (*s != c)
 		{
-			strs[i] = ft_substr(s, 0, wordlen(s, c));
-			if (!strs[i++])
-				return (free_strs(strs));
-			s += wordlen(s, c);
+			len = ft_wordlen(s, c);
+			strs[i] = malloc(len + 1);
+			if (!strs[i])
+				return (ft_free_parcial(strs, i));
+			ft_strlcpy(strs[i], s, len + 1);
+			i++;
+			s += len;
 		}
 		else
 			s++;
 	}
+	strs[i] = NULL;
 	return (strs);
 }
