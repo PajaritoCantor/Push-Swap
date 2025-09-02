@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/08/28 20:26:41 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/02 21:16:30 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_strlen_int(const char *str);
 int		ft_printf(const char *format, ...);
 int		ft_printfd(int fd, const char *format, ...);
 void	ft_print_error(void);
+void    print_list(t_strlst *lst);
 
 //  lists
 
@@ -58,6 +59,6 @@ t_strlst	*ft_strlstnew(void *content);
 t_strlst	*ft_strlstlast(t_strlst *lst);
 void	ft_strlstadd_back(t_strlst **lst, t_strlst *new);
 void	ft_strlstclear(t_strlst **lst, void (*del)(void*));
-void	ft_strlsdelone(t_strlst *lst, void (*del)(void *));
+void	ft_strlstdelone(t_strlst *lst, void (*del)(void *));
 
 #endif

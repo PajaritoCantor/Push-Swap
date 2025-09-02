@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/08/27 15:56:43 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/02 21:25:04 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,16 @@ t_strlst	*append_args_to_list(t_strlst *input, char **args)
 			ft_printfd(1, "Error digit\n");
 		num = (ft_atol(args[j]));
 		if (ft_isrepeat(input, num))
+		{
+			ft_strlstclear(&input,free);
+			return (NULL);
+		}
 		new_node = ft_strlstnew(args[j]);
+		if (!new_node)
+		{
+			ft_strlstclear(&input, free);
+			return (NULL);
+		}
 		ft_strlstadd_back(&input, new_node);
 		j++;
 	}
@@ -51,7 +60,7 @@ t_strlst	*parse(int ac, char **av)
 			// ft_printf("%s\n", args[h]);
 		if (!args)
 		{
-			ft_strlstclear(&input);
+			ft_strlstclear(&input, free);
 			return (ft_printf("1"),NULL);
 		}
 		

@@ -6,7 +6,7 @@
 #    By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 21:39:17 by juan              #+#    #+#              #
-#    Updated: 2025/08/27 15:34:25 by jurodrig         ###   ########.fr        #
+#    Updated: 2025/09/02 21:18:02 by jurodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ VALIDATE_DIR	:= validate/
 OBJS_DIR        := objs/
 FREE_DIR		:= free/
 
-LISTS_FILES		:= ft_strlstadd_back ft_strlstlast ft_strlstnew
+LISTS_FILES		:= ft_strlstadd_back ft_strlstlast ft_strlstnew ft_strlstclear ft_strlstdelone
 MEMORY_FILES    := ft_memcpy
-PRINTF_FILES    := ft_printf ft_putchar ft_putnbr ft_putstr ft_strlen_int ft_print_error
+PRINTF_FILES    := ft_printf ft_putchar ft_putnbr ft_putstr ft_strlen_int ft_print_error ft_print_list
 STRINGS_FILES   := ft_split ft_strdup ft_strlen ft_substr
 VALIDATE_FILES	:= ft_atol ft_str_isdigit ft_isspace ft_isrepeat
 FREE_FILES		:= ft_free_split

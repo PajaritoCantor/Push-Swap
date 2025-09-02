@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlstclear.c                                   :+:      :+:    :+:   */
+/*   ft_print_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 15:57:15 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/02 21:03:44 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/09/02 21:14:54 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/09/02 21:18:30 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_strlstclear(t_strlst **lst, void (*del)(void*))
+void    print_list(t_strlst *lst)
 {
-	t_strlst	*tmp;
+    int count = 0;
 
-	if (!del || !lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		ft_strlstdelone(*lst, del);
-		*lst = tmp;
-	}
-	free(*lst);
+    while (lst && count < 20) // límite de seguridad
+    {
+        ft_printf("[%s] -> ", lst->data);
+        lst = lst->next;
+        count++;
+    }
+    ft_printf("NULL\n");
 }
