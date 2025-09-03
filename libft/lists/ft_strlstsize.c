@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlstsize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/03 02:05:07 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/09/03 01:44:39 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/09/03 01:46:57 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-int main(int ac, char **av)
+int ft_strlstsize(t_strlst *lst)
 {
-    t_strlst *input;
-    
-    if (ac != 2)
-        ft_print_error("Error", 2);
-    input = parse(ac, av);
-    if (!input || ft_strlstsize(input) < 2)
-		ft_free_list(input);
-    else
-        print_list(input);
-    return (0);  
+    int count = 0;
+    while (lst)
+    {
+        count++;
+        lst = lst->next;
+    }
+    return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/09/02 21:25:04 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/03 02:06:38 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ t_strlst	*append_args_to_list(t_strlst *input, char **args)
 	long		num;
 
 	j = 0;
-	// ft_printf("%s\n", args[j]);
 	while (args[j])
 	{
 		if (!ft_str_isdigit(args[j]))
-			ft_printfd(1, "Error digit\n");
+			ft_printfd(1, "Error chu\n");
 		num = (ft_atol(args[j]));
 		if (ft_isrepeat(input, num))
 		{
-			ft_strlstclear(&input,free);
+			ft_printfd(2, "repetido");
+			// ft_strlstclear(&input,free);
 			return (NULL);
 		}
 		new_node = ft_strlstnew(args[j]);
@@ -48,22 +48,16 @@ t_strlst	*parse(int ac, char **av)
 	t_strlst		*input;
 	char			**args;
 
-	if (ac == 1)
-		return (NULL);
 	i = 1;
 	input = NULL;
-	// ft_printf("%s\n", av[i]);
 	while (i < ac)
 	{
 		args = ft_split(av[i], ' ');
-		// for(int h = 0; h < 4 ; h++)
-			// ft_printf("%s\n", args[h]);
 		if (!args)
 		{
 			ft_strlstclear(&input, free);
 			return (ft_printf("1"),NULL);
 		}
-		
 		input = append_args_to_list(input, args);
 		ft_free_split(args);
     	i++;

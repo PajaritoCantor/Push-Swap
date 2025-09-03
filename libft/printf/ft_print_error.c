@@ -6,14 +6,16 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 12:19:49 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/08/22 15:59:44 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/03 01:31:28 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_print_error(void)
+int	ft_print_error(char *error_msg, int y)
 {
-	ft_printfd(2, "Error\n");
+	ft_printfd(2, "Error: %s\n", error_msg);
+	if (y)
+		exit(EXIT_FAILURE);
 	exit (1);
 }
