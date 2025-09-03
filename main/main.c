@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/03 02:05:07 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/03 18:02:22 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
     t_strlst *input;
     
-    if (ac != 2)
+    if (ac < 2)
         ft_print_error("Error", 2);
     input = parse(ac, av);
     if (!input || ft_strlstsize(input) < 2)

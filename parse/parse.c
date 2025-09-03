@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/09/03 02:06:38 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/03 20:53:19 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_strlst	*append_args_to_list(t_strlst *input, char **args)
 	while (args[j])
 	{
 		if (!ft_str_isdigit(args[j]))
-			ft_printfd(1, "Error chu\n");
+			return (NULL);
 		num = (ft_atol(args[j]));
 		if (ft_isrepeat(input, num))
 		{
@@ -51,7 +51,7 @@ t_strlst	*parse(int ac, char **av)
 	i = 1;
 	input = NULL;
 	while (i < ac)
-	{
+	{ 
 		args = ft_split(av[i], ' ');
 		if (!args)
 		{
