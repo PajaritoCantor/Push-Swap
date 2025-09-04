@@ -21,7 +21,7 @@ int main(int ac, char **av)
     input = parse(ac, av);
     if (!input || ft_strlstsize(input) < 2)
 		ft_free_list(input);
-    else
-        print_list(input);
+    print_list(input);
+    ft_strlstclear(&input, free);
     return (0);  
 }

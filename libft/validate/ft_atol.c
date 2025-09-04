@@ -30,9 +30,5 @@ long    ft_atol(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 		result = result * 10 + *str++ - 48;
-	result *= sign;
-
-	if (result > INT_MAX || result < INT_MIN)
-		ft_printfd(1, "Error atol");
-	return (result);
+	return (result *= sign);
 }
