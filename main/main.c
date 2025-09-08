@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/07 23:22:28 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:21:00 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int main(int ac, char **av)
 	ps.a = strlst_to_stack(input);
 	ps.b = NULL;
     ft_strlstclear(&input, free);
-	handle_stack_a(&ps);
+	handle_stack_a(&ps.a, &ps.b);
     ft_free_stack(ps.a);
 	ft_free_stack(ps.b);
     return (0);  
 }
+

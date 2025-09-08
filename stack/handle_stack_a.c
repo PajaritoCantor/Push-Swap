@@ -22,6 +22,18 @@ void print_stack(t_stack *stack)
     }
     printf("NULL\n");
 }
+void	sb(t_stack *b)
+{
+	int	tmp;
+
+	if (!b || !b->next)
+		return ;
+	tmp = b->data;
+	b->data = b->next->data;
+	b->next->data = tmp;
+	print_stack(b);
+	ft_printfd(1, "sb\n");
+}
 
 void	sa(t_stack	*a)
 {
@@ -36,9 +48,11 @@ void	sa(t_stack	*a)
 	ft_printfd(1, "sa\n");
 }
 
-void	handle_stack_a(t_push_swap *ps)
+void	handle_stack_a(t_stack **a, t_stack **b)
 {
-	if (ps->a && ps->a->next && ps->a->data > ps->a->next->data)
-		sa(ps->a);
+	if (*a && (*a)->next && (*a)->data > (*a)->next->data)
+		sa(*a);
+	if (*b && (*b)->next && (*b)->data > (*b)->next->data)
+		sb(*b);
 	return ;	
 }
