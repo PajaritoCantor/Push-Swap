@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/09/03 02:04:09 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/06 01:53:55 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct strlst
 	struct strlst	*next;
 }				t_strlst;
 
+typedef struct  stack
+{
+    int data;
+    struct  stack   *next;
+}               t_stack;
+
 // libft
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -41,6 +47,7 @@ int		ft_isspace(char c);
 int		ft_isrepeat(t_strlst *input, long num);
 void	ft_free_split(char **args);
 void    ft_free_list(t_strlst *input);
+void	ft_free_stack(t_stack *stack);
 
 // ft_printf
 

@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/08/20 19:04:27 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/08 02:27:12 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,7 @@
 
 # include <limits.h>
 # include "libft.h"
-
-typedef struct  stack
-{
-    int data;
-    struct  stack   *next;
-}               t_stack;
+# include "stdio.h"
 
 typedef struct push_swap
 {
@@ -29,5 +24,7 @@ typedef struct push_swap
 }               t_push_swap;
 
 t_strlst *parse(int ac, char **av);
+t_stack		*strlst_to_stack(t_strlst *input);
+void    handle_stack_a(t_push_swap *ps);
 
 #endif
