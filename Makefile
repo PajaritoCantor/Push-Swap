@@ -6,7 +6,7 @@
 #    By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 16:51:36 by juan              #+#    #+#              #
-#    Updated: 2025/09/08 01:19:34 by jurodrig         ###   ########.fr        #
+#    Updated: 2025/09/09 15:56:07 by jurodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS_DIR        := objs/
 
 MAIN_FILES      := main
 PARSE_FILES     := parse
-STACK_FILES		:= strlst_to_stack handle_stack_a
+STACK_FILES		:= strlst_to_stack handle_stacks movements_stack_a stack_utils
 
 OBJ_FILES := $(addprefix $(OBJS_DIR)/main/, $(addsuffix .o, $(MAIN_FILES))) \
              $(addprefix $(OBJS_DIR)/parse/, $(addsuffix .o, $(PARSE_FILES))) \

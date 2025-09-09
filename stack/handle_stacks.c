@@ -12,47 +12,41 @@
 
 #include "push_swap.h"
 
-void print_stack(t_stack *stack)
+void handle_three_a(t_stack *a)
 {
-    t_stack *tmp = stack;
-    while (tmp)
+    int first = a->data;
+    int second = a->next->data;
+    int third = a->next->next->data;
+
+    if (first < second && second < third)
+        return;
+    else if (first > second && second < third && first < third)
+        sa(a);
+    else if (first > second && second > third)
     {
-        printf("[%d]->", tmp->data);
-        tmp = tmp->next;
+        sa(a);
+        rra(&a);
     }
-    printf("NULL\n");
-}
-void	sb(t_stack *b)
-{
-	int	tmp;
-
-	if (!b || !b->next)
-		return ;
-	tmp = b->data;
-	b->data = b->next->data;
-	b->next->data = tmp;
-	print_stack(b);
-	ft_printfd(1, "sb\n");
+    else if (first > second && second < third && first > third)
+        ra(&a);
+    else if (first < second && second > third && first < third)
+    {
+        sa(a);
+        ra(&a);
+    }
+    else if (first < second && second > third && first > third)
+        rra(&a);
+    ft_print_stack(a);
 }
 
-void	sa(t_stack	*a)
+void	handle_stacks(t_stack **a)
 {
-	int	tmp;
-
-	if (!a || !a->next)
-		return ;
-	tmp = a->data;
-	a->data = a->next->data;
-	a->next->data = tmp;
-	print_stack(a);
-	ft_printfd(1, "sa\n");
-}
-
-void	handle_stack_a(t_stack **a, t_stack **b)
-{
-	if (*a && (*a)->next && (*a)->data > (*a)->next->data)
+	int	size; 
+	
+	size = stack_size(*a);
+	if (size == 2)
 		sa(*a);
-	if (*b && (*b)->next && (*b)->data > (*b)->next->data)
-		sb(*b);
-	return ;	
+	if (size == 3)
+		handle_three_a(*a);
+	return ;
 }

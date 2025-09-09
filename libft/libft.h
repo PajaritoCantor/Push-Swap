@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/09/06 01:53:55 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/09 05:55:37 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ int		ft_strlen_int(const char *str);
 int		ft_printf(const char *format, ...);
 int		ft_printfd(int fd, const char *format, ...);
 int		ft_print_error(char *error_msg, int y);
-void    print_list(t_strlst *lst);
+void    ft_print_list(t_strlst *lst);
 int		ft_print_error(char *error_msg, int y);
+void    ft_print_stack(t_stack *stack);
 
 //  lists
 

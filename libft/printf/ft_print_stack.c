@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_list.c                                    :+:      :+:    :+:   */
+/*   ft_print_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 21:14:54 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/09 05:55:46 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/09/09 05:54:12 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/09/09 05:59:01 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void    ft_print_list(t_strlst *lst)
+void ft_print_stack(t_stack *stack)
 {
-    int count = 0;
+    t_stack *tmp = stack;
 
-    while (lst && count < 20)
+    while (tmp)
     {
-        ft_printf("[%s] -> ", lst->data);
-        lst = lst->next;
-        count++;
+        ft_printf("[%d]->", tmp->data);
+        tmp = tmp->next;
     }
     ft_printf("NULL\n");
 }
