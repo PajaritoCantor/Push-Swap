@@ -6,11 +6,86 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/09 15:58:08 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:39:30 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_stack *strlst_to_stack(t_strlst *input)
+{
+	t_stack		*new_node;
+	t_stack		*stack;
+	t_stack		*last;
+
+	stack = NULL;
+	last = NULL;
+	while (input)
+	{
+
+		new_node = malloc(sizeof(t_stack));
+		if (!new_node)
+			ft_free_stack(stack);
+		new_node->data = ft_atol(input->data);
+		new_node->next = NULL;
+		if (!stack)
+			stack = new_node;
+		else
+			last->next = new_node;
+		last = new_node;
+		input = input->next;
+	}
+	return (stack);
+}
+
+t_strlst	*append_args_to_list(t_strlst *input, char **args)
+{
+	int			j;
+	t_strlst	*new_node;
+	long		num;
+
+	j = 0;
+	while (args[j])
+	{
+		if (!ft_str_isdigit(args[j]))
+			return (NULL);
+		num = ft_atol(args[j]);
+		if (num > INT_MAX || num < INT_MIN)
+			return (NULL);
+		if (ft_isrepeat(input, num))
+			return (NULL);
+		new_node = ft_strlstnew(args[j]);
+		if (!new_node)
+			return (NULL);
+		ft_strlstadd_back(&input, new_node);
+		j++;
+	}
+	return (input);
+}
+
+t_strlst	*parse(int ac, char **av)
+{
+	int			i;
+	t_strlst	*input;
+	t_strlst	*tmp;
+	char		**args;
+
+	i = 1;
+	input = NULL;
+	while (i < ac)
+	{
+		args = ft_split(av[i], ' ');
+		if (!args)
+			return (ft_strlstclear(&input, free), NULL);
+		tmp = append_args_to_list(input, args);
+		ft_free_split(args);
+		if (!tmp)
+			return (ft_strlstclear(&input, free), NULL);
+		input = tmp;
+		i++;
+	}
+	return (input);
+}
 
 int main(int ac, char **av)
 {
@@ -26,7 +101,7 @@ int main(int ac, char **av)
 	ps.a = strlst_to_stack(input);
 	ps.b = NULL;
     ft_strlstclear(&input, free);
-	handle_stacks(&ps.a);
+	handle_stacks(&ps.a, &ps.b);
     ft_free_stack(ps.a);
 	ft_free_stack(ps.b);
     return (0);  

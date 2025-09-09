@@ -39,14 +39,16 @@ void handle_three_a(t_stack *a)
     ft_print_stack(a);
 }
 
-void	handle_stacks(t_stack **a)
+void	handle_stacks(t_stack **a, t_stack **b)
 {
 	int	size; 
 	
 	size = stack_size(*a);
 	if (size == 2)
 		sa(*a);
-	if (size == 3)
+	else if (size == 3)
 		handle_three_a(*a);
-	return ;
+    size = stack_size(*b);
+    if (size == 3)
+        handle_three_b(*b);
 }

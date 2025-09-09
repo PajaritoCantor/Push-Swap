@@ -6,7 +6,7 @@
 #    By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 16:51:36 by juan              #+#    #+#              #
-#    Updated: 2025/09/09 15:56:07 by jurodrig         ###   ########.fr        #
+#    Updated: 2025/09/09 20:48:23 by jurodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,13 @@
 INC_DIR         := include/
 LIBFT_DIR       := libft/
 MAIN_DIR        := main/
-PARSE_DIR       := parse/
 STACK_DIR		:= stack/
 OBJS_DIR        := objs/
 
 MAIN_FILES      := main
-PARSE_FILES     := parse
-STACK_FILES		:= strlst_to_stack handle_stacks movements_stack_a stack_utils
+STACK_FILES		:= handle_stacks handle_stack_b movements_stack_a movements_stack_b stack_utils
 
 OBJ_FILES := $(addprefix $(OBJS_DIR)/main/, $(addsuffix .o, $(MAIN_FILES))) \
-             $(addprefix $(OBJS_DIR)/parse/, $(addsuffix .o, $(PARSE_FILES))) \
 			 $(addprefix $(OBJS_DIR)/stack/, $(addsuffix .o, $(STACK_FILES)))
 
 #============================== VARIABLES & COMPILER ==============================#
@@ -50,10 +47,6 @@ $(NAME): $(OBJ_FILES)
 
 $(OBJS_DIR)/main/%.o: $(MAIN_DIR)%.c
 	@$(MKDIR) -p $(OBJS_DIR)/main
-	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
-
-$(OBJS_DIR)/parse/%.o: $(PARSE_DIR)%.c
-	@$(MKDIR) -p $(OBJS_DIR)/parse
 	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJS_DIR)/stack/%.o: $(STACK_DIR)%.c

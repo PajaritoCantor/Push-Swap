@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:08:58 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/09 16:07:35 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/09 19:53:59 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ void	rra(t_stack **a)
 
 	if (!a || !*a || !(*a)->next)
 		return ;
-
 	prev = NULL;
 	last = *a;
-
 	while (last->next)
 	{
 		prev = last;
