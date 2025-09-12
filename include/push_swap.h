@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/09/09 20:47:09 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/12 05:05:22 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ void	sb(t_stack *b);
 void	pb(t_stack **a, t_stack **b);
 void	rrb(t_stack **b);
 void	rb(t_stack **b);
-void	handle_three_a(t_stack *a);
+void	handle_three(t_stack **a);
 void    handle_three_b(t_stack *b);
 
 int		stack_size(t_stack *stack);
 void	swap_nodes(t_stack *stack);
+int find_min_index(t_stack *stack);
 
 #endif
