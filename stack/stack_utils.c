@@ -6,31 +6,31 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:43:07 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/12 05:05:17 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/13 06:28:54 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_min_index(t_stack *stack)
+void find_min_and_pos(t_stack *stack, int *min_value, int *pos)
 {
-    int min = stack->data;
-    int index = 0;
-    int pos = 0;
+    if (!stack)
+        return;
+    *min_value = stack->data;
+    *pos = 0;
+    int current_pos = 0;
     t_stack *tmp = stack;
-
     while (tmp)
     {
-        if (tmp->data < min)
+        if (tmp->data < *min_value)
         {
-            min = tmp->data;
-            index = pos;
+            *min_value = tmp->data;
+            *pos = current_pos;
         }
         tmp = tmp->next;
-        pos++;
+        current_pos++;
     }
-    return (index);
-}	
+}
 
 int	stack_size(t_stack *stack)
 {

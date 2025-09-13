@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/09/09 05:55:37 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/13 06:09:56 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ typedef struct strlst
 	struct strlst	*next;
 }				t_strlst;
 
-typedef struct  stack
+typedef struct s_stack
 {
     int data;
-    struct  stack   *next;
-}               t_stack;
+    struct s_stack *next;
+} t_stack;
 
 // libft
 

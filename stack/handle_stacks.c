@@ -12,42 +12,36 @@
 
 #include "push_swap.h"
 
-void handle_four(t_stack **a, t_stack **b)
+void	handle_four(t_stack **a, t_stack **b)
 {
-    int min_index;
-    int size;
-	
-	size = stack_size(*a);
-	min_index = find_min_index(*a);
-    if (min_index <= size / 2)
-    {
-        while (min_index-- > 0)
-            ra(a);
-    }
-    else
-    {
-        int moves = size - min_index;
-        while (moves-- > 0)
-            rra(a);
-    }
-    pb(a, b);
-    handle_three(a);
-    pa(b, a);
+	int	min_value;
+	int	pos;
+	int	size;
 
-    ft_print_stack(*a);
+	if (!a || !*a)
+		return ;
+	find_min_and_pos(*a, &min_value, &pos);
+	size = stack_size(*a);
+	if (pos <= size / 2)
+		while ((*a)->data != min_value)
+			ra(a);
+	else
+		while ((*a)->data != min_value)
+			rra(a);
+	pb(a, b);
+	handle_three(a);
+	pa(b, a);
+	ft_print_stack(*a);
 }
 
 void handle_three(t_stack **a)
 {
-    int first;
-    int second;
-    int third;
+    int first = (*a)->data;
+    int second = (*a)->next->data;
+    int third = (*a)->next->next->data;
 
-    first = (*a)->data;
-    second = (*a)->next->data;
-    third = (*a)->next->next->data;
     if (first < second && second < third)
-        return;
+        return ;
     else if (first > second && second < third && first < third)
         sa(*a);
     else if (first > second && second > third)
@@ -64,6 +58,7 @@ void handle_three(t_stack **a)
     }
     else if (first < second && second > third && first > third)
         rra(a);
+
     ft_print_stack(*a);
 }
 

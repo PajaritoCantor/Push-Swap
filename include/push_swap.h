@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/09/12 05:05:22 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/13 06:25:45 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void    handle_three_b(t_stack *b);
 
 int		stack_size(t_stack *stack);
 void	swap_nodes(t_stack *stack);
-int find_min_index(t_stack *stack);
+void find_min_and_pos(t_stack *stack, int *min_value, int *pos);
 
 #endif
