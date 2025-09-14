@@ -6,31 +6,39 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:40:50 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/13 04:47:15 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/14 05:03:39 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_stack *b)
+void	sb(t_stack **b)
 {
-	swap_nodes(b);
+	t_stack	*first;
+	t_stack	*second;
+
+	if (!b || !*b || !(*b)->next)
+		return;
+	first = *b;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*b = second;
 	ft_printfd(1, "sb\n");
 }
 
-void pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!a || !*a)
-        return;
-    tmp = *a;
-    *a = (*a)->next;
-    tmp->next = *b;
-    *b = tmp;
-    ft_printfd(1, "pb\n");
+	if (!a || !*a)
+		return;
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = *b;
+	*b = tmp;
+	ft_printfd(1, "pb\n");
 }
-
 
 void	rrb(t_stack **b)
 {

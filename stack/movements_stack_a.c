@@ -6,69 +6,72 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:08:58 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/13 04:47:25 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/14 05:05:16 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_stack **a)
 {
-	if (a && a->next)
-		swap_nodes(a);
+	t_stack	*first;
+	t_stack	*second;
+
+	if (!a || !*a || !(*a)->next)
+		return;
+	first = *a;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*a = second;
 	ft_printfd(1, "sa\n");
 }
 
-void pa(t_stack **b, t_stack **a)
+void	pa(t_stack **b, t_stack **a)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!b || !*b)
-        return;
-    tmp = *b;
-    *b = (*b)->next;
-    tmp->next = *a;
-    *a = tmp;
-    ft_printfd(1, "pa\n");
+	if (!b || !*b)
+		return;
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = *a;
+	*a = tmp;
+	ft_printfd(1, "pa\n");
 }
 
-void rra(t_stack **a)
+void	rra(t_stack **a)
 {
-    t_stack *prev;
-    t_stack *last;
+	t_stack	*prev;
+	t_stack	*last;
 
-    if (!a || !*a || !(*a)->next)
-        return;
-
-    prev = NULL;
-    last = *a;
-    while (last->next)
-    {
-        prev = last;
-        last = last->next;
-    }
-    prev->next = NULL;
-    last->next = *a;
-    *a = last;
-
-    ft_printfd(1, "rra\n");
+	if (!a || !*a || !(*a)->next)
+		return;
+	prev = NULL;
+	last = *a;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = *a;
+	*a = last;
+	ft_printfd(1, "rra\n");
 }
-void ra(t_stack **a)
+void	ra(t_stack **a)
 {
-    t_stack *first;
-    t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
 
-    if (!a || !*a || !(*a)->next)
-        return;
-
-    first = *a;
-    *a = (*a)->next;     // nuevo head
-    first->next = NULL;
-
-    last = *a;
-    while (last->next)
-        last = last->next;
-    last->next = first;
-
-    ft_printfd(1, "ra\n");
+	if (!a || !*a || !(*a)->next)
+		return;
+	first = *a;
+	*a = (*a)->next;
+	first->next = NULL;
+	last = *a;
+	while (last->next)
+		last = last->next;
+	last->next = first;
+	ft_printfd(1, "ra\n");
 }
