@@ -6,11 +6,30 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:43:07 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/13 06:28:54 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/14 19:40:10 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_sqrt(int nb)
+{
+	int	i;
+
+	if (nb <= 0)
+		return (0);
+	if (nb == 1)
+		return (1);
+	i = 1;
+	while (i * i <= nb && i <= 46340)
+	{
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (i - 1);
+}
+
 
 void find_min_and_pos(t_stack *stack, int *min_value, int *pos)
 {
@@ -54,11 +73,4 @@ void	swap_nodes(t_stack *stack)
 	tmp = stack->data;
 	stack->data = stack->next->data;
 	stack->next->data = tmp;
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap_nodes(a);
-	swap_nodes(b);
-	ft_printfd(1, "ss\n");
 }

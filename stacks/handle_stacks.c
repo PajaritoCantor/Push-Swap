@@ -131,4 +131,6 @@ void	handle_stacks(t_stack **a, t_stack **b)
 		handle_five(a, b);
 	else if (size == 6)
 		handle_six(a, b);
+    else if (size > 6)
+        k_sort(a, b);
 }

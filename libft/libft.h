@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/09/13 06:09:56 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/14 19:36:51 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct strlst
 typedef struct s_stack
 {
     int data;
+    int index;
     struct s_stack *next;
 } t_stack;
 

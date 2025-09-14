@@ -6,11 +6,32 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/09 19:39:30 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/14 20:42:59 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	assign_indexes(t_stack *stack)
+{
+	t_stack	*tmp;
+	int		count;
+
+	tmp = stack;
+	while (tmp)
+	{
+		count = 0;
+		t_stack *cur = stack;
+		while (cur)
+		{
+			if (cur->data < tmp->data)
+				count++;
+			cur = cur->next;
+		}
+		tmp->index = count;
+		tmp = tmp->next;
+	}
+}
 
 t_stack *strlst_to_stack(t_strlst *input)
 {
@@ -97,10 +118,11 @@ int main(int ac, char **av)
     input = parse(ac, av);
     if (!input || ft_strlstsize(input) < 2)
 		ft_free_list(input);
-    ft_print_list(input);
+    //ft_print_list(input);
 	ps.a = strlst_to_stack(input);
 	ps.b = NULL;
     ft_strlstclear(&input, free);
+	assign_indexes(ps.a);
 	handle_stacks(&ps.a, &ps.b);
     ft_free_stack(ps.a);
 	ft_free_stack(ps.b);
