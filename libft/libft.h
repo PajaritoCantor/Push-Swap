@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/09/14 19:36:51 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/14 21:50:28 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ typedef struct strlst
 
 typedef struct s_stack
 {
-    int data;
-    int index;
-    struct s_stack *next;
-} t_stack;
+	int	data;
+	int	index;
+	struct s_stack	*next;
+}				t_stack;
 
 // libft
 
@@ -47,7 +47,7 @@ int		ft_str_isdigit(char *str);
 int		ft_isspace(char c);
 int		ft_isrepeat(t_strlst *input, long num);
 void	ft_free_split(char **args);
-void    ft_free_list(t_strlst *input);
+void	ft_free_list(t_strlst *input);
 void	ft_free_stack(t_stack *stack);
 
 // ft_printf
@@ -60,17 +60,18 @@ int		ft_strlen_int(const char *str);
 int		ft_printf(const char *format, ...);
 int		ft_printfd(int fd, const char *format, ...);
 int		ft_print_error(char *error_msg, int y);
-void    ft_print_list(t_strlst *lst);
+void	ft_print_list(t_strlst *lst);
 int		ft_print_error(char *error_msg, int y);
-void    ft_print_stack(t_stack *stack);
+void	ft_print_stack(t_stack *stack);
 
 //  lists
 
 t_strlst	*ft_strlstnew(void *content);
 t_strlst	*ft_strlstlast(t_strlst *lst);
+
 void	ft_strlstadd_back(t_strlst **lst, t_strlst *new);
 void	ft_strlstclear(t_strlst **lst, void (*del)(void*));
 void	ft_strlstdelone(t_strlst *lst, void (*del)(void *));
-int 	ft_strlstsize(t_strlst *lst);
+int		ft_strlstsize(t_strlst *lst);
 
 #endif
