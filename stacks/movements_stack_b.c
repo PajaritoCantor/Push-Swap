@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:40:50 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/14 19:07:17 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 16:36:57 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,9 @@
 
 void	handle_three_b(t_stack **b)
 {
-	int	first;
-	int	second;
-	int	third;
-
 	if (!b || !*b || !(*b)->next || !(*b)->next->next)
-		return;
-	first = (*b)->data;
-	second = (*b)->next->data;
-	third = (*b)->next->next->data;
-	if (first > second && second > third)
-		return;
-	else if (first < second && second > third && first > third)
-		sb(b);
-	else if (first < second && second < third)
-	{
-		sb(b);
-		rrb(b);
-	}
-	else if (first < second && second > third && first < third)
-		rb(b);
-	else if (first > second && second < third && first > third)
-	{
-		sb(b);
-		rb(b);
-	}
-	else if (first > second && second < third && first < third)
-		rrb(b);
+		return ;
+	sort_three_nodes_b(b);
 }
 
 void	sb(t_stack **b)
@@ -49,7 +25,7 @@ void	sb(t_stack **b)
 	t_stack	*second;
 
 	if (!b || !*b || !(*b)->next)
-		return;
+		return ;
 	first = *b;
 	second = first->next;
 	first->next = second->next;
@@ -63,7 +39,7 @@ void	pb(t_stack **a, t_stack **b)
 	t_stack	*tmp;
 
 	if (!a || !*a)
-		return;
+		return ;
 	tmp = *a;
 	*a = (*a)->next;
 	tmp->next = *b;

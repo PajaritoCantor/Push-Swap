@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/14 20:42:59 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:32:06 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ void	assign_indexes(t_stack *stack)
 {
 	t_stack	*tmp;
 	int		count;
+	t_stack	*cur;
 
 	tmp = stack;
 	while (tmp)
 	{
 		count = 0;
-		t_stack *cur = stack;
+		cur = stack;
 		while (cur)
 		{
 			if (cur->data < tmp->data)
@@ -33,7 +34,7 @@ void	assign_indexes(t_stack *stack)
 	}
 }
 
-t_stack *strlst_to_stack(t_strlst *input)
+t_stack	*strlst_to_stack(t_strlst *input)
 {
 	t_stack		*new_node;
 	t_stack		*stack;
@@ -43,7 +44,6 @@ t_stack *strlst_to_stack(t_strlst *input)
 	last = NULL;
 	while (input)
 	{
-
 		new_node = malloc(sizeof(t_stack));
 		if (!new_node)
 			ft_free_stack(stack);
@@ -108,24 +108,22 @@ t_strlst	*parse(int ac, char **av)
 	return (input);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_strlst	*input;
-	t_push_swap		ps;
-    
-    if (ac < 2)
-        ft_print_error("Error", 2);
-    input = parse(ac, av);
-    if (!input || ft_strlstsize(input) < 2)
+	t_strlst	*input;
+	t_push_swap	ps;
+
+	if (ac < 2)
+		ft_print_error("Error", 2);
+	input = parse(ac, av);
+	if (!input || ft_strlstsize(input) < 2)
 		ft_free_list(input);
-    //ft_print_list(input);
 	ps.a = strlst_to_stack(input);
 	ps.b = NULL;
-    ft_strlstclear(&input, free);
+	ft_strlstclear(&input, free);
 	assign_indexes(ps.a);
 	handle_stacks(&ps.a, &ps.b);
-    ft_free_stack(ps.a);
+	ft_free_stack(ps.a);
 	ft_free_stack(ps.b);
-    return (0);  
+	return (0);
 }
-

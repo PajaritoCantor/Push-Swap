@@ -6,7 +6,7 @@
 #    By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/11 21:39:17 by juan              #+#    #+#              #
-#    Updated: 2025/09/09 05:58:00 by jurodrig         ###   ########.fr        #
+#    Updated: 2025/09/15 22:17:31 by jurodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,9 @@ FREE_DIR		:= free/
 LISTS_FILES		:= ft_strlstadd_back ft_strlstlast ft_strlstnew ft_strlstclear ft_strlstdelone ft_strlstsize
 MEMORY_FILES    := ft_memcpy
 PRINTF_FILES    := ft_printf ft_putchar ft_putnbr ft_putstr ft_strlen_int ft_print_error ft_print_list ft_print_stack
-STRINGS_FILES   := ft_split ft_strdup ft_strlen ft_substr
+STRINGS_FILES   := ft_split ft_strdup ft_strlen ft_substr ft_strlcpy
 VALIDATE_FILES	:= ft_atol ft_str_isdigit ft_isspace ft_isrepeat
-FREE_FILES		:= ft_free_split ft_free_list ft_free_stack
+FREE_FILES		:= ft_free_parcial ft_free_split ft_free_list ft_free_stack
 
 SRC_FILES := \
 	$(addprefix $(FREE_DIR), $(addsuffix .c, $(FREE_FILES))) \

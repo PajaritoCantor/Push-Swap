@@ -2,10 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
-/*               ççan@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 19:13:36 by juan              #+#    #+#             */
-/*   Updated: 2025/08/18 12:00:41 by juan             ###   ########.fr       */
+/*   Created: 2025/09/15 15:28:45 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/09/15 15:36:20 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -13,26 +14,30 @@
 
 static int	ft_conversion_fd_two(int fd, char conv, va_list arg)
 {
-	int len = 0;
+	int	len;
 
+	len = 0;
 	if (conv == 'd' || conv == 'i')
 		len = ft_putnbr_base(va_arg(arg, int), "0123456789", 10, fd);
 	else if (conv == 'u')
 		len = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789", 10, fd);
 	else if (conv == 'x')
-		len = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789abcdef", 16, fd);
+		len = ft_putnbr_base(va_arg(arg, unsigned int),
+				"0123456789abcdef", 16, fd);
 	else if (conv == 'X')
-		len = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789ABCDEF", 16, fd);
+		len = ft_putnbr_base(va_arg(arg, unsigned int),
+				"0123456789ABCDEF", 16, fd);
 	else if (conv == '%')
 		len = ft_putchar(fd, '%');
 	return (len);
 }
 
-static int ft_conversion_fd(int fd, char conv, va_list arg)
+static int	ft_conversion_fd(int fd, char conv, va_list arg)
 {
-	int		len = 0;
+	int		len;
 	void	*p;
 
+	len = 0;
 	if (conv == 'c')
 		len = ft_putchar(fd, va_arg(arg, int));
 	else if (conv == 's')
@@ -43,9 +48,10 @@ static int ft_conversion_fd(int fd, char conv, va_list arg)
 		if (!p)
 			len = ft_putstr(fd, "(nil)");
 		else
-		{		
+		{
 			len += ft_putstr(fd, "0x");
-			len += ft_putnbr_base_p((unsigned long)p, "0123456789abcdef", 10, fd);
+			len += ft_putnbr_base_p((unsigned long)p,
+					"0123456789abcdef", 10, fd);
 		}
 	}
 	else
@@ -55,8 +61,9 @@ static int ft_conversion_fd(int fd, char conv, va_list arg)
 
 static int	ft_xprintf(int fd, const char *str, va_list args)
 {
-	int len = 0;
+	int	len;
 
+	len = 0;
 	while (*str)
 	{
 		if (*str == '%' && *(str + 1))
@@ -78,10 +85,10 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	len = ft_xprintf(1, format, args);
 	va_end(args);
-	return (len);	
+	return (len);
 }
 
-int ft_printfd(int fd, const char *format, ...)
+int	ft_printfd(int fd, const char *format, ...)
 {
 	va_list	args;
 	int		len;

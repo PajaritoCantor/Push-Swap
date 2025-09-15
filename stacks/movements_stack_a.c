@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:08:58 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/14 05:05:16 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 16:31:40 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sa(t_stack **a)
 	t_stack	*second;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	first = *a;
 	second = first->next;
 	first->next = second->next;
@@ -32,7 +32,7 @@ void	pa(t_stack **b, t_stack **a)
 	t_stack	*tmp;
 
 	if (!b || !*b)
-		return;
+		return ;
 	tmp = *b;
 	*b = (*b)->next;
 	tmp->next = *a;
@@ -46,7 +46,7 @@ void	rra(t_stack **a)
 	t_stack	*last;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	prev = NULL;
 	last = *a;
 	while (last->next)
@@ -59,13 +59,14 @@ void	rra(t_stack **a)
 	*a = last;
 	ft_printfd(1, "rra\n");
 }
+
 void	ra(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*last;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	first = *a;
 	*a = (*a)->next;
 	first->next = NULL;

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_free_parcial.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 17:53:47 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/15 22:23:28 by jurodrig         ###   ########.fr       */
+/*   Created: 2025/09/15 22:16:13 by jurodrig          #+#    #+#             */
+/*   Updated: 2025/09/15 22:27:55 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_isspace(char c)
+void	*ft_free_parcial(char **strs, int n)
 {
-	return (c == 32 || (c >= 9 && c <= 13));
+	int	i;
+
+	i = 0;
+	while (i < n)
+		free(strs[i++]);
+	return (free(strs), NULL);
 }

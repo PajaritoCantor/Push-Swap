@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 20:44:13 by juan              #+#    #+#             */
-/*   Updated: 2025/08/07 16:41:40 by juan             ###   ########.fr       */
+/*   Updated: 2025/09/15 15:56:40 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int     ft_putstr(int fd, char *str)
+int	ft_putstr(int fd, char *str)
 {
-    if (!str)
+	if (!str)
 		str = "(null)";
 	return (write(fd, str, ft_strlen(str)));
 }

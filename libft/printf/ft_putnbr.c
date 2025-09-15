@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 17:58:36 by juan              #+#    #+#             */
-/*   Updated: 2025/09/09 05:53:39 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:38:15 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_putnbr_base(long n, char *base, int lenbase, int fd)
 
 int	ft_putnbr_base_p(long n, char *base, int lenbase, int fd)
 {
-	unsigned int 	baselen;
+	unsigned int	baselen;
 	int				len;
 
 	len = 0;

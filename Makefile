@@ -6,7 +6,7 @@
 #    By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 16:51:36 by juan              #+#    #+#              #
-#    Updated: 2025/09/14 20:14:35 by jurodrig         ###   ########.fr        #
+#    Updated: 2025/09/15 16:16:47 by jurodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ STACKS_DIR		:= stacks/
 OBJS_DIR        := objs/
 
 MAIN_FILES      := main
-STACKS_FILES	:= handle_stacks k_sort movements_stack_a movements_stack_b stack_utils
+STACKS_FILES	:= handle_stacks k_sort movements_stack_a movements_stack_b stack_utils stack_utils2
 
 OBJ_FILES := $(addprefix $(OBJS_DIR)/main/, $(addsuffix .o, $(MAIN_FILES))) \
 			 $(addprefix $(OBJS_DIR)/stacks/, $(addsuffix .o, $(STACKS_FILES)))

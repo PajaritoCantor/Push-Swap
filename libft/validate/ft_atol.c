@@ -6,22 +6,21 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:30:37 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/08/27 15:47:31 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:23:10 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-long    ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
-	long result;
-	int sign;
+	long	result;
+	int		sign;
 
 	result = 0;
 	sign = 1;
-
 	while (ft_isspace(*str))
-			str++;
+		str++;
 	if (*str == 45 || *str == 43)
 	{
 		if (*str == 45)

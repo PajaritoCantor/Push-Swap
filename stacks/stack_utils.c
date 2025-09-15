@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:43:07 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/14 19:40:10 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 16:59:01 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,32 @@ int	ft_sqrt(int nb)
 	return (i - 1);
 }
 
-
-void find_min_and_pos(t_stack *stack, int *min_value, int *pos)
+void	find_min_and_pos(t_stack *stack, int *min_value, int *pos)
 {
-    if (!stack)
-        return;
-    *min_value = stack->data;
-    *pos = 0;
-    int current_pos = 0;
-    t_stack *tmp = stack;
-    while (tmp)
-    {
-        if (tmp->data < *min_value)
-        {
-            *min_value = tmp->data;
-            *pos = current_pos;
-        }
-        tmp = tmp->next;
-        current_pos++;
-    }
+	t_stack	*tmp;
+	int		current_pos;	
+
+	if (!stack)
+		return ;
+	current_pos = 0;
+	*min_value = stack->data;
+	*pos = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->data < *min_value)
+		{
+			*min_value = tmp->data;
+			*pos = current_pos;
+		}
+		tmp = tmp->next;
+		current_pos++;
+	}
 }
 
 int	stack_size(t_stack *stack)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (stack)
@@ -61,7 +63,7 @@ int	stack_size(t_stack *stack)
 		size++;
 		stack = stack->next;
 	}
-	return size;
+	return (size);
 }
 
 void	swap_nodes(t_stack *stack)

@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/09/15 01:52:05 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 21:41:00 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char		*ft_strdup(const char *s);
 size_t		ft_strlen(const char *s);
 char		**ft_split(const char *s, char c);
 char		*ft_substr(const char *s, unsigned int start, size_t len);
+int			ft_strlcpy(char *dst, const char *src, size_t size);
 long		ft_atol(const char *str);
 int			ft_str_isdigit(char *str);
 int			ft_isspace(char c);
@@ -49,6 +50,7 @@ int			ft_isrepeat(t_strlst *input, long num);
 void		ft_free_split(char **args);
 void		ft_free_list(t_strlst *input);
 void		ft_free_stack(t_stack *stack);
+void		*ft_free_parcial(char **strs, int n);
 
 // ft_printf
 
