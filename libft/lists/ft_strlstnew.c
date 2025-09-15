@@ -6,10 +6,9 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:29:08 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/02 21:00:12 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/15 03:33:08 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../libft.h"
 
@@ -27,5 +26,5 @@ t_strlst	*ft_strlstnew(void	*content)
 		return (NULL);
 	}
 	new_node->next = NULL;
-	return(new_node);
+	return (new_node);
 }

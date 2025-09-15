@@ -22,5 +22,4 @@ void	ft_free_stack(t_stack *stack)
 		free(stack);
 		stack = tmp;
 	}
-
 }
