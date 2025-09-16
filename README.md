@@ -2,16 +2,6 @@
 
 # 🧠 Push-SwaP
 
-## Funciones complementarias
-
-En este proyecto decidí rehacer y optimizar algunas funciones de mi **libft**, incluyendo la versión personalizada de la función **printf**,  
-
-### LIBFT
-<details>
-<summary>LIBFT</summary>
-
-</details>
-
 ## Mis structs y listas
 
 ### t_stack
@@ -49,20 +39,3 @@ Lista enlazada para guardar los datos como strings, útil en el parseo inicial a
 ** útil para analizar la entrada como string(split, validaciones, errores) ** 
 
 ** Puedes convertir luego cada nodo a entero y crear los nodos de t_stack **
-
-## Sobre las listas enlazadas
-
-    t_strlst  *ft_strlstnew(void *content)
-    {
-        t_strlst  *new_node;
-
-        new_node = malloc(sizeof(t_strlst));
-        new_node->data = ft_strdup(content);
-        new_node->next = NULL;
-        return (new_node);
-    }
-* Pasamos un parámetro de tipo.
-* Malloqueamos el parámetro para que sea de tipo **t_strlst**
-* A este nodo enlazado a **data** le asignamos el parámetro void utilizando **ft_strdup**
-* El siguiente nodo **next** es NULL
-* Retornamos el **new_node**

@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:43:07 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/15 16:59:01 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:58:26 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,17 @@ int	stack_size(t_stack *stack)
 		stack = stack->next;
 	}
 	return (size);
+}
+
+int	check_order(t_stack *a)
+{
+	while (a && a->next)
+	{
+		if (a->data > a->next->data)
+			return (0);
+		a = a->next;
+	}
+	return (1);
 }
 
 void	swap_nodes(t_stack *stack)

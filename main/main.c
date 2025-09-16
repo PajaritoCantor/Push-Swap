@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/15 22:32:06 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 21:48:36 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_strlst	*append_args_to_list(t_strlst *input, char **args)
 {
 	int			j;
 	t_strlst	*new_node;
-	long		num;
+	int			num;
 
 	j = 0;
 	while (args[j])
@@ -71,8 +71,6 @@ t_strlst	*append_args_to_list(t_strlst *input, char **args)
 		if (!ft_str_isdigit(args[j]))
 			return (NULL);
 		num = ft_atol(args[j]);
-		if (num > INT_MAX || num < INT_MIN)
-			return (NULL);
 		if (ft_isrepeat(input, num))
 			return (NULL);
 		new_node = ft_strlstnew(args[j]);
@@ -114,10 +112,14 @@ int	main(int ac, char **av)
 	t_push_swap	ps;
 
 	if (ac < 2)
-		ft_print_error("Error", 2);
+		ft_print_error("\n", 2);
 	input = parse(ac, av);
-	if (!input || ft_strlstsize(input) < 2)
-		ft_free_list(input);
+	if (!input)
+	{
+		ft_printfd(2, "parse falló\n");
+		return (1);
+	}
+	ft_printf("todo bien\n");
 	ps.a = strlst_to_stack(input);
 	ps.b = NULL;
 	ft_strlstclear(&input, free);

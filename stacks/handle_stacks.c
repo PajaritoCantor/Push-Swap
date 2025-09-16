@@ -74,6 +74,8 @@ void	handle_stacks(t_stack **a, t_stack **b)
 	int	size;
 
 	size = stack_size(*a);
+	if (check_order(*a))
+		return ;
 	if (size == 2)
 		sa(a);
 	else if (size == 3)

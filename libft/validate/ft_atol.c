@@ -6,13 +6,13 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:30:37 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/15 22:23:10 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 21:06:08 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-long	ft_atol(const char *str)
+int	ft_atol(const char *str)
 {
 	long	result;
 	int		sign;
@@ -29,5 +29,7 @@ long	ft_atol(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 		result = result * 10 + *str++ - 48;
-	return (result *= sign);
+	if (result * sign > INT_MAX || result * sign < INT_MIN)
+		ft_print_error("Error: número fuera de rango\n", 2);
+	return ((int)(result * sign));
 }

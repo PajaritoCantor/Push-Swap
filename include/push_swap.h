@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/09/15 17:01:56 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:59:20 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void		k_sort_return_to_a(t_stack **a, t_stack **b, int size);
 
 int			stack_size(t_stack *stack);
 void		swap_nodes(t_stack *stack);
+int			check_order(t_stack *a);
 void		find_min_and_pos(t_stack *stack, int *min_value, int *pos);
 int			find_max_pos(t_stack *b, int max_index);
 int			ft_sqrt(int nb);
