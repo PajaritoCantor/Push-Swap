@@ -6,15 +6,15 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 18:57:21 by juan              #+#    #+#             */
-/*   Updated: 2025/09/02 21:01:01 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 21:57:51 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_strlstadd_back(t_strlst **lst, t_strlst *new)
+void	ft_strlstadd_back(t_stack **lst, t_stack *new)
 {
-	t_strlst	*last;
+	t_stack	*last;
 
 	if (!lst || !new)
 		return ;

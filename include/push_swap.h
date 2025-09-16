@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/09/16 19:59:20 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 22:13:21 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct push_swap
 	t_stack	*b;
 }				t_push_swap;
 
-t_strlst	*parse(int ac, char **av);
-t_stack		*strlst_to_stack(t_strlst *input);
+t_stack	*parse(int ac, char **av);
+t_stack		*strlst_to_stack(t_stack *input);
 void		handle_stacks(t_stack **a, t_stack **b);
 void		sa(t_stack **a);
 void		pa(t_stack **b, t_stack **a);

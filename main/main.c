@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/16 21:48:36 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 22:13:39 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	assign_indexes(t_stack *stack)
 	}
 }
 
-t_stack	*strlst_to_stack(t_strlst *input)
+t_stack	*strlst_to_stack(t_stack *input)
 {
 	t_stack		*new_node;
 	t_stack		*stack;
@@ -47,7 +47,7 @@ t_stack	*strlst_to_stack(t_strlst *input)
 		new_node = malloc(sizeof(t_stack));
 		if (!new_node)
 			ft_free_stack(stack);
-		new_node->data = ft_atol(input->data);
+		new_node->data = input->data;
 		new_node->next = NULL;
 		if (!stack)
 			stack = new_node;
@@ -59,11 +59,11 @@ t_stack	*strlst_to_stack(t_strlst *input)
 	return (stack);
 }
 
-t_strlst	*append_args_to_list(t_strlst *input, char **args)
+t_stack	*append_args_to_list(t_stack *input, char **args)
 {
 	int			j;
-	t_strlst	*new_node;
-	int			num;
+	t_stack	*new_node;
+	int		num;
 
 	j = 0;
 	while (args[j])
@@ -82,11 +82,11 @@ t_strlst	*append_args_to_list(t_strlst *input, char **args)
 	return (input);
 }
 
-t_strlst	*parse(int ac, char **av)
+t_stack	*parse(int ac, char **av)
 {
 	int			i;
-	t_strlst	*input;
-	t_strlst	*tmp;
+	t_stack	*input;
+	t_stack	*tmp;
 	char		**args;
 
 	i = 1;
@@ -108,18 +108,14 @@ t_strlst	*parse(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_strlst	*input;
+	t_stack	*input;
 	t_push_swap	ps;
 
 	if (ac < 2)
 		ft_print_error("\n", 2);
 	input = parse(ac, av);
 	if (!input)
-	{
-		ft_printfd(2, "parse falló\n");
-		return (1);
-	}
-	ft_printf("todo bien\n");
+		ft_free_list(input);
 	ps.a = strlst_to_stack(input);
 	ps.b = NULL;
 	ft_strlstclear(&input, free);

@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:57:29 by juan              #+#    #+#             */
-/*   Updated: 2025/09/16 21:50:43 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/16 22:07:26 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <limits.h>
-
-typedef struct strlst
-{
-	char			*data;
-	struct strlst	*next;
-}				t_strlst;
 
 typedef struct s_stack
 {
@@ -46,9 +40,9 @@ int			ft_strlcpy(char *dst, const char *src, size_t size);
 int			ft_atol(const char *str);
 int			ft_str_isdigit(char *str);
 int			ft_isspace(char c);
-int			ft_isrepeat(t_strlst *input, long num);
+int			ft_isrepeat(t_stack *input, long num);
 void		ft_free_split(char **args);
-void		ft_free_list(t_strlst *input);
+void		ft_free_list(t_stack *input);
 void		ft_free_stack(t_stack *stack);
 void		*ft_free_parcial(char **strs, int n);
 
@@ -62,19 +56,19 @@ int			ft_strlen_int(const char *str);
 int			ft_printf(const char *format, ...);
 int			ft_printfd(int fd, const char *format, ...);
 int			ft_print_error(char *error_msg, int y);
-void		ft_print_list(t_strlst *lst);
+void		ft_print_list(t_stack *lst);
 int			ft_print_error(char *error_msg, int y);
 void		ft_print_stack(t_stack *stack);
 
 void		ft_print_lists(t_stack *lst);
 
 //  lists
-t_strlst	*ft_strlstnew(void *content);
-t_strlst	*ft_strlstlast(t_strlst *lst);
+t_stack	*ft_strlstnew(void *content);
+t_stack	*ft_strlstlast(t_stack *lst);
 
-void		ft_strlstadd_back(t_strlst **lst, t_strlst *new);
-void		ft_strlstclear(t_strlst **lst, void (*del)(void*));
-void		ft_strlstdelone(t_strlst *lst, void (*del)(void *));
-int			ft_strlstsize(t_strlst *lst);
+void		ft_strlstadd_back(t_stack **lst, t_stack *new);
+void		ft_strlstclear(t_stack **lst, void (*del)(void*));
+void		ft_strlstdelone(t_stack *lst);
+int			ft_strlstsize(t_stack *lst);
 
 #endif
