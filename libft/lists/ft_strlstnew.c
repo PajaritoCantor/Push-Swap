@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 12:29:08 by jurodrig          #+#    #+#             */
-/*   Updated: 2025/09/17 02:15:43 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:47:46 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ t_stack	*ft_strlstnew(void	*content)
 	num = ft_atol((char *)content);
 	new_node->data = num;
 	new_node->index = 0;
-	if (!new_node->data)
-		return (free(new_node), NULL);
 	new_node->next = NULL;
 	return (new_node);
 }
