@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:46:36 by juan              #+#    #+#             */
-/*   Updated: 2025/09/16 22:13:21 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/17 02:20:55 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ typedef struct push_swap
 	t_stack	*b;
 }				t_push_swap;
 
-t_stack	*parse(int ac, char **av);
+t_stack		*parse(int ac, char **av);
 t_stack		*strlst_to_stack(t_stack *input);
-void		handle_stacks(t_stack **a, t_stack **b);
+
 void		sa(t_stack **a);
 void		pa(t_stack **b, t_stack **a);
 void		rra(t_stack **a);
@@ -34,6 +34,8 @@ void		sb(t_stack **b);
 void		pb(t_stack **a, t_stack **b);
 void		rrb(t_stack **b);
 void		rb(t_stack **b);
+
+void		handle_stacks(t_stack **a, t_stack **b);
 void		handle_three(t_stack **a);
 void		sort_three_nodes_a(t_stack **a);
 void		handle_three_b(t_stack **b);
@@ -43,6 +45,7 @@ void		handle_five(t_stack **a, t_stack **b);
 void		handle_six(t_stack **a, t_stack **b);
 void		push_three_min(t_stack **a, t_stack **b);
 void		sort_and_merge_three(t_stack **a, t_stack **b);
+
 void		k_sort(t_stack **a, t_stack **b);
 void		k_sort_push_to_b(t_stack **a, t_stack **b, int size);
 void		k_sort_return_to_a(t_stack **a, t_stack **b, int size);

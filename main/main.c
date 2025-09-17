@@ -6,7 +6,7 @@
 /*   By: jurodrig <jurodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:16:42 by juan              #+#    #+#             */
-/*   Updated: 2025/09/16 22:13:39 by jurodrig         ###   ########.fr       */
+/*   Updated: 2025/09/17 02:21:36 by jurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ t_stack	*strlst_to_stack(t_stack *input)
 t_stack	*append_args_to_list(t_stack *input, char **args)
 {
 	int			j;
-	t_stack	*new_node;
-	int		num;
+	t_stack		*new_node;
+	int			num;
 
 	j = 0;
 	while (args[j])
@@ -85,8 +85,8 @@ t_stack	*append_args_to_list(t_stack *input, char **args)
 t_stack	*parse(int ac, char **av)
 {
 	int			i;
-	t_stack	*input;
-	t_stack	*tmp;
+	t_stack		*input;
+	t_stack		*tmp;
 	char		**args;
 
 	i = 1;
@@ -108,14 +108,14 @@ t_stack	*parse(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_stack	*input;
+	t_stack		*input;
 	t_push_swap	ps;
 
 	if (ac < 2)
-		ft_print_error("\n", 2);
+		return (0);
 	input = parse(ac, av);
 	if (!input)
-		ft_free_list(input);
+		return (ft_free_list(input), 0);
 	ps.a = strlst_to_stack(input);
 	ps.b = NULL;
 	ft_strlstclear(&input, free);
